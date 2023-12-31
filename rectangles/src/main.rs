@@ -56,7 +56,7 @@ fn main() {
     square1.set_width(100);
 
     println!(
-        "Now the area of square1 is {} square pixels.",
+        "Now the area of square1 is {} square pixels (and it's no longer a square).",
         &square1.area()
     );
 }
