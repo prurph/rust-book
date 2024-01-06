@@ -54,4 +54,30 @@ Pick three.";
 
         assert_eq!(vec!["safe, fast, productive."], search(query, contents))
     }
+
+    #[test]
+    fn two_results() {
+        let query = "water";
+        let contents = "\
+watermelon
+water, water, everywhere
+and not a drop to drink";
+
+        assert_eq!(
+            vec!["watermelon", "water, water, everywhere"],
+            search(query, contents)
+        )
+    }
+
+    #[test]
+    fn no_results() {
+        let query = "water";
+        let contents = "\
+Crumpled panties, in the street
+I can't stand them in this heat!
+Liberation has its pearls
+Get your junk out, boys and girls!";
+
+        assert!(search(query, contents).is_empty())
+    }
 }
