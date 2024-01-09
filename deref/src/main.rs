@@ -6,6 +6,16 @@ fn main() {
 
     assert_eq!(5, x);
     assert_eq!(5, *y);
+
+    let m = MyBox::new(String::from("Rust"));
+    // Deref coercion: &MyBox<String> -> &String -> &str
+    // MyBox<T> implements Deref<Target=T>
+    // String implements Deref<Target=str>
+    hello(&m);
+}
+
+fn hello(name: &str) {
+    println!("Hello, {name}!");
 }
 
 struct MyBox<T>(T);
